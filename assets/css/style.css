@@ -1,4 +1,14 @@
+* {
+  text-align: center;
+}
 body {
-  background-color: black;
+  font-family: 'Source Sans Pro', sans-serif;
   color: white;
+  background: black;
+
+}
+
+.container {
+  margin-top: 15px;
+
 }

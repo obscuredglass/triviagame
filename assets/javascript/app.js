@@ -138,9 +138,12 @@ function answerPage(){
 		unanswered++;
 		$('#message').html(messages.endTime);
 		$('#correctedAnswer').html('The correct answer was: ' + rightAnswerText);
+		$('#jpeg').html('<img src = "assets/images/unanswered.jpeg" width = "500px">');
 		answered = true;
 	}
 	
+	// move to next question timeout
+
 	if(currentQuestion == (triviaQuestions.length-1)){
 		setTimeout(score, 4000)
 	} else{
@@ -148,6 +151,8 @@ function answerPage(){
 		setTimeout(newQuestion, 4000);
 	}	
 }
+
+// score function
 
 function score(){
 	$('#timeLeft').empty();

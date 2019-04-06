@@ -1,3 +1,5 @@
+//set variables
+
 var triviaQuestions = [{
 	question: "What is Flying Lotus' real name?",
 	answerList: ["Steve Ellison", "Hunter Bascko", "Jessie Jackson"],
@@ -24,6 +26,8 @@ var triviaQuestions = [{
 	answer: 1
 }];
 
+// set jpeg array c
+
 var jpegArray = ['question1', 'question2', 'question3', 'question4', 'question5', 'question6'];
 var currentQuestion; var correctAnswer; var incorrectAnswer; var unanswered; var seconds; var time; var answered; var userSelect;
 var messages = {
@@ -33,15 +37,21 @@ var messages = {
 	finished: "Let's count them up."
 }
 
+// needs a startbutton
+
 $('#startBtn').on('click', function(){
 	$(this).hide();
 	newGame();
 });
 
+// needs a start over button
+
 $('#startOverBtn').on('click', function(){
 	$(this).hide();
 	newGame();
 });
+
+// function for a new game
 
 function newGame(){
 	$('#finalMessage').empty();
@@ -63,7 +73,7 @@ function newQuestion(){
 	
 	//sets up new questions & answerList
 	$('#currentQuestion').html('Question #'+(currentQuestion+1)+'/'+triviaQuestions.length);
-	$('.question').html('<h2>' + triviaQuestions[currentQuestion].question + '</h2>');
+	$('.question').html('<h4>' + triviaQuestions[currentQuestion].question + '</h4>');
 	for(var i = 0; i < 4; i++){
 		var choices = $('<div>');
 		choices.text(triviaQuestions[currentQuestion].answerList[i]);
@@ -81,8 +91,8 @@ function newQuestion(){
 }
 
 function countdown(){
-	seconds = 15;
-	$('#timeLeft').html('<h3>Time Remaining: ' + seconds + '</h3>');
+	seconds = 10;
+	$('#timeLeft').html('<h4>Time Remaining: ' + seconds + '</h4>');
 	answered = true;
 	//sets timer to go down
 	time = setInterval(showCountdown, 1000);
@@ -90,7 +100,7 @@ function countdown(){
 
 function showCountdown(){
 	seconds--;
-	$('#timeLeft').html('<h3>Time Remaining: ' + seconds + '</h3>');
+	$('#timeLeft').html('<h4>Time Remaining: ' + seconds + '</h4>');
 	if(seconds < 1){
 		clearInterval(time);
 		answered = false;
@@ -105,8 +115,9 @@ function answerPage(){
 
 	var rightAnswerText = triviaQuestions[currentQuestion].answerList[triviaQuestions[currentQuestion].answer];
 	var rightAnswerIndex = triviaQuestions[currentQuestion].answer;
-	$('#jpeg').html('<img src = "assets/images/'+ jpegArray[currentQuestion] +'.jpg" width = "400px">');
-	//checks to see correct, incorrect, or unanswered
+	$('#jpeg').html('<img src = "assets/images/'+ jpegArray[currentQuestion] +'.jpg" width = "500px">');
+
+	//this is checking the answered, wrong and unanswered questions
 	if((userSelect == rightAnswerIndex) && (answered == true)){
 		correctAnswer++;
 		$('#message').html(messages.correct);
@@ -122,14 +133,14 @@ function answerPage(){
 	}
 	
 	if(currentQuestion == (triviaQuestions.length-1)){
-		setTimeout(scoreboard, 5000)
+		setTimeout(score, 4000)
 	} else{
 		currentQuestion++;
-		setTimeout(newQuestion, 5000);
+		setTimeout(newQuestion, 4000);
 	}	
 }
 
-function scoreboard(){
+function score(){
 	$('#timeLeft').empty();
 	$('#message').empty();
 	$('#correctedAnswer').empty();

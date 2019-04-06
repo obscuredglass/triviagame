@@ -7,6 +7,7 @@ This game utilizes timers and answering from an array of questions.
 2. CSS
 3. Javascript
 4. Google Fonts
+5. jQuery
 
 Screenshot:
 ![show the game](/assets/images/screenshot.png)

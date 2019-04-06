@@ -90,6 +90,8 @@ function newQuestion(){
 	});
 }
 
+//countdown function
+
 function countdown(){
 	seconds = 10;
 	$('#timeLeft').html('<h4>Time Remaining: ' + seconds + '</h4>');
@@ -97,6 +99,8 @@ function countdown(){
 	//sets timer to go down
 	time = setInterval(showCountdown, 1000);
 }
+
+// show the countdown
 
 function showCountdown(){
 	seconds--;
@@ -108,6 +112,8 @@ function showCountdown(){
 	}
 }
 
+// answer page
+
 function answerPage(){
 	$('#currentQuestion').empty();
 	$('.thisChoice').empty(); //Clears question page
@@ -117,14 +123,17 @@ function answerPage(){
 	var rightAnswerIndex = triviaQuestions[currentQuestion].answer;
 	$('#jpeg').html('<img src = "assets/images/'+ jpegArray[currentQuestion] +'.jpg" width = "500px">');
 
-	//this is checking the answered, wrong and unanswered questions
+	//if correct
 	if((userSelect == rightAnswerIndex) && (answered == true)){
 		correctAnswer++;
 		$('#message').html(messages.correct);
+		// if incorrect
 	} else if((userSelect != rightAnswerIndex) && (answered == true)){
 		incorrectAnswer++;
 		$('#message').html(messages.incorrect);
 		$('#correctedAnswer').html('The correct answer was: ' + rightAnswerText);
+		$('#jpeg').html('<img src = "assets/images/wrong.jpg" width = "500px">');
+		//if unanswered
 	} else{
 		unanswered++;
 		$('#message').html(messages.endTime);

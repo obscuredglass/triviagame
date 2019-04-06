@@ -1,4 +1,4 @@
-//set variables
+//set variables for quetion answerlist and answer
 
 var triviaQuestions = [{
 	question: "What is Flying Lotus' real name?",
@@ -26,7 +26,7 @@ var triviaQuestions = [{
 	answer: 1
 }];
 
-// set jpeg array c
+// set jpeg array
 
 var jpegArray = ['question1', 'question2', 'question3', 'question4', 'question5', 'question6'];
 var currentQuestion; var correctAnswer; var incorrectAnswer; var unanswered; var seconds; var time; var answered; var userSelect;
@@ -34,7 +34,7 @@ var messages = {
 	correct: "You got it!",
 	incorrect: "Booooo.",
 	endTime: "You goofed!",
-	finished: "Let's count them up."
+	finished: "Let's count them up...and I'm sorry you had to play such an obscure trivia game."
 }
 
 // needs a startbutton
@@ -113,10 +113,10 @@ function showCountdown(){
 }
 
 // answer page
-
+// clears question page
 function answerPage(){
 	$('#currentQuestion').empty();
-	$('.thisChoice').empty(); //Clears question page
+	$('.thisChoice').empty(); 
 	$('.question').empty();
 
 	var rightAnswerText = triviaQuestions[currentQuestion].answerList[triviaQuestions[currentQuestion].answer];
@@ -167,4 +167,5 @@ function score(){
 	$('#startOverBtn').addClass('reset');
 	$('#startOverBtn').show();
 	$('#startOverBtn').html('Start Over?');
+	
 }

@@ -9,5 +9,7 @@ This game utilizes timers and answering from an array of questions.
 4. Google Fonts
 5. jQuery
 
+https://obscuredglass.github.io/triviagame/
+
 Screenshot:
 ![show the game](/assets/images/screenshot.png)
